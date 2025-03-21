@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+    background-color: #FFF9C4;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFB300' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(to bottom, #FFF9C4, #FFECB3);
+    background-attachment: fixed;
+    color: #000000;
+    line-height: 1.7;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #FFFFFF;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    position: relative;
+    border: 1px solid rgba(255, 179, 0, 0.2);
+}
+
+/* Traditional Korean border design */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(255, 179, 0, 0.1);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+h2, h3, h4 {
+    color: #000000;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 1.9rem;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #FFE082;
+    padding-bottom: 10px;
+    padding-right: 110px; /* Make room for logout button */
+}
+
+#title {
+    position: relative;
+    z-index: 1;
+}
+
+p {
+    color: #000000;
+    text-align: left;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    font-size: 16px;
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+
+input, button, textarea {
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    width: 100%;
+    font-family: inherit;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: #000000;
+    transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #FFB300;
+    box-shadow: 0 0 0 2px rgba(255, 179, 0, 0.2);
+}
+
+button {
+    background-color: #FFD54F;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #FFCA28;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    background-color: #E0E0E0;
+    color: #9E9E9E;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+#logout-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 10;
+    background-color: #9E9E9E;
+    color: white;
+    padding: 8px 15px;
+    width: auto;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#logout-btn:hover {
+    background-color: #757575;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Section styling */
+.section {
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.section h3 {
+    background-color: #FFF8E1;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 0 0 18px 0;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 4px solid #FFD54F;
+}
+
+.section h3:hover {
+    background-color: #FFECB3;
+}
+
+.section h3::after {
+    content: "▼";
+    position: absolute;
+    right: 15px;
+    color: #FFA000;
+    transition: transform 0.3s ease;
+}
+
+.section.collapsed h3::after {
+    content: "▶";
+}
+
+.section.collapsed > *:not(h3) {
+    display: none;
+}
+
+.section h4 {
+    font-size: 1.2rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #424242;
+    border-bottom: 1px solid #FFE082;
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+/* Quiz styling with traditional Korean color palette */
+.quiz-question {
+    background-color: #FFFDE7;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 3px solid #FFD54F;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.quiz-options {
+    padding-left: 15px;
+    margin-top: 12px;
+}
+
+.quiz-options p {
+    background-color: #FFF8E1;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #FFE082;
+}
+
+textarea.question {
+    min-height: 120px;
+    resize: vertical;
+    font-size: 15px;
+    line-height: 1.6;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.next-btn {
+    max-width: 200px;
+    margin: 20px auto 10px auto;
+    display: block;
+    padding: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+/* Login styling with Korean-inspired design */
+#loginContainer {
+    text-align: center;
+    max-width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    margin: 50px auto;
+    border: 1px solid rgba(255, 179, 0, 0.3);
+    position: relative;
+}
+
+#loginContainer::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(255, 179, 0, 0.1);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#loginContainer::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #FFF9C4;
+    border: 1px solid rgba(255, 179, 0, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#loginContainer h2 {
+    margin-bottom: 30px;
+    color: #424242;
+    border-bottom: none;
+}
+
+#loginContainer input {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#loginContainer button {
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 14px;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 20px;
+        margin: 10px auto;
+    }
+    
+    #logout-btn {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* Smooth transitions */
+* {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Strong text styling */
+strong {
+    font-weight: 500;
+    color: #000000;
+}
+
+/* Traditional Korean decorative elements */
+#appContainer::after {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+    background-color: #FFF9C4;
+    border: 1px solid rgba(255, 179, 0, 0.3);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Footer decoration inspired by Korean patterns */
+.section:last-child::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 5px;
+    background: linear-gradient(90deg, #FFD54F, transparent);
+    margin: 25px auto 0;
+    border-radius: 5px;
+}
